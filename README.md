@@ -831,7 +831,7 @@ Cada computador que executar o projeto deverá possuir suas próprias variáveis
 ## 1. Clonar o projeto
 
 ```bash
-git clone https://github.com/kaique-masc/SUPERNOVAVET_JAVA_ADVANCED.git
+git clone https://github.com/FelipeAugusto99/SP4-SUPERNOVAVET-API.git
 ```
 
 ## 2. Entrar na pasta
