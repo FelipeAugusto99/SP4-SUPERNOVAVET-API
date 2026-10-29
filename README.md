@@ -1,5 +1,23 @@
 #  SuperNova VET
 
+## Sprint 4 – Integração com o banco de dados (Database)
+
+Este repositório é a API Spring Boot do SuperNova Vet usada na entrega da Sprint 4 de *Mastering Relational and Non-Relational Database*. Ela é baseada no projeto de Java Advanced, desenvolvido por Felipe Augusto Lopes Ferreira (RM 563982) e Kaique Mascarenhas dos Santos (RM 565802), e recebeu a integração com as procedures do Oracle.
+
+**O que foi adicionado nesta sprint**
+- `PetProcedureRepository`: chama os procedimentos do package `PKG_PET_APP` (`pr_inserir_tutor`, `pr_inserir_pet`, `pr_registrar_vacina`, `pr_atualizar_peso_pet`, `pr_excluir_pet`, `pr_listar_pets`) e o export do dataset em JSON, usando `SimpleJdbcCall`.
+- `PetProcedureController`: expõe os endpoints em `/procedures/**`. Erros do Oracle (`ORA-20001` a `ORA-20006`) são devolvidos como HTTP 400 com a mensagem tratada pela procedure.
+- `SecurityConfig`: as rotas `/procedures/**` exigem perfil `ADMIN` ou `VETERINARIO`.
+
+**Banco de dados e demais arquivos (SQL, JSON e MongoDB):** https://github.com/FelipeAugusto99/SP4-DATABASE-SUPERNOVA-VET
+
+**Como testar**
+1. Rode o script SQL do repositório de Database no Oracle.
+2. Defina as variáveis de ambiente `DB_USERNAME` e `DB_PASSWORD` (as credenciais não ficam no repositório).
+3. Suba a API com `./mvnw spring-boot:run`.
+4. Abra o Swagger em `http://localhost:8080/swagger-ui/index.html` e clique em **Authorize** com o usuário administrador criado pela aplicação.
+5. Teste, por exemplo, `POST /procedures/pets` (sucesso) e o mesmo endpoint com um `idTutor` inexistente (retorna 400 com `ORA-20003`).
+
 Sistema web desenvolvido para gerenciamento e monitoramento de pets.
 
 O projeto utiliza **Java com Spring Boot** no backend, **Oracle Database** para persistência dos dados, **Flyway** para versionamento do banco de dados, **Spring Security** para autenticação e autorização e **React + Vite** no frontend.
@@ -75,7 +93,7 @@ Cada perfil possui permissões diferentes dentro da aplicação.
 #  Estrutura do Projeto
 
 ```text
-SUPERNOVAVET_JAVA_ADVANCED/
+SP4-SUPERNOVAVET-API/
 │
 ├── src/
 │   └── main/
@@ -813,13 +831,13 @@ Cada computador que executar o projeto deverá possuir suas próprias variáveis
 ## 1. Clonar o projeto
 
 ```bash
-git clone (https://github.com/kaique-masc/SUPERNOVAVET_JAVA_ADVANCED.git)
+git clone https://github.com/kaique-masc/SUPERNOVAVET_JAVA_ADVANCED.git
 ```
 
 ## 2. Entrar na pasta
 
 ```bash
-cd SUPERNOVAVET_JAVA_ADVANCED
+cd SP4-SUPERNOVAVET-API
 ```
 
 ---
