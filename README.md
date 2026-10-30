@@ -2,7 +2,11 @@
 
 ## Sprint 4 – Integração com o banco de dados (Database)
 
-Este repositório é a API Spring Boot do SuperNova Vet usada na entrega da Sprint 4 de *Mastering Relational and Non-Relational Database*. Ela é baseada no projeto de Java Advanced, desenvolvido por Felipe Augusto Lopes Ferreira (RM 563982) e Kaique Mascarenhas dos Santos (RM 565802), e recebeu a integração com as procedures do Oracle.
+Este repositório é a API Spring Boot do SuperNova Vet usada na entrega da Sprint 4 de *Mastering Relational and Non-Relational Database*. Ela é baseada na API de Java Advanced, desenvolvida por Felipe Augusto Lopes Ferreira (RM 563982) e Kaique Mascarenhas dos Santos (RM 565802), e recebeu a integração com as procedures do Oracle.
+
+**Repositório original (Java Advanced):** https://github.com/kaique-masc/SUPERNOVAVET_JAVA_ADVANCED
+
+> As duas versões compartilham o mesmo código da API (entidades, endpoints e regras de negócio). Este repositório mantém, além disso, a migration `V4__corrigir_colunas_tutor.sql`, específica do banco usado na entrega de Database.
 
 **O que foi adicionado nesta sprint**
 - `PetProcedureRepository`: chama os procedimentos do package `PKG_PET_APP` (`pr_inserir_tutor`, `pr_inserir_pet`, `pr_registrar_vacina`, `pr_atualizar_peso_pet`, `pr_excluir_pet`, `pr_listar_pets`) e o export do dataset em JSON, usando `SimpleJdbcCall`.
